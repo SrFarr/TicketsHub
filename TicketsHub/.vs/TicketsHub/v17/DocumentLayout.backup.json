@@ -3,36 +3,12 @@
   "WorkspaceRootPath": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C1EDF371-48B9-4C3C-84C6-67777B69164D}|..\\TicketsHub for Desktop\\TicketsHub for Desktop.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub for desktop\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13F56FEF-B9AF-4F70-83D7-08F50C61B08A}|TicketsHub.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13F56FEF-B9AF-4F70-83D7-08F50C61B08A}|TicketsHub.csproj|solutionrelative:mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1EDF371-48B9-4C3C-84C6-67777B69164D}|..\\TicketsHub for Desktop\\TicketsHub for Desktop.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub for desktop\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1EDF371-48B9-4C3C-84C6-67777B69164D}|..\\TicketsHub for Desktop\\TicketsHub for Desktop.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub for desktop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F56FEF-B9AF-4F70-83D7-08F50C61B08A}|TicketsHub.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub\\formmovie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F56FEF-B9AF-4F70-83D7-08F50C61B08A}|TicketsHub.csproj|solutionrelative:formmovie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1EDF371-48B9-4C3C-84C6-67777B69164D}|..\\TicketsHub for Desktop\\TicketsHub for Desktop.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub for desktop\\ticketshub.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1EDF371-48B9-4C3C-84C6-67777B69164D}|..\\TicketsHub for Desktop\\TicketsHub for Desktop.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub for desktop\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1EDF371-48B9-4C3C-84C6-67777B69164D}|..\\TicketsHub for Desktop\\TicketsHub for Desktop.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub for desktop\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1EDF371-48B9-4C3C-84C6-67777B69164D}|..\\TicketsHub for Desktop\\TicketsHub for Desktop.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub for desktop\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1EDF371-48B9-4C3C-84C6-67777B69164D}|..\\TicketsHub for Desktop\\TicketsHub for Desktop.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub for desktop\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F56FEF-B9AF-4F70-83D7-08F50C61B08A}|TicketsHub.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13F56FEF-B9AF-4F70-83D7-08F50C61B08A}|TicketsHub.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13F56FEF-B9AF-4F70-83D7-08F50C61B08A}|TicketsHub.csproj|d:\\tugas\\kejuruan\\4.7\\ticketshub by kelompok2\\ticketshub\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{13F56FEF-B9AF-4F70-83D7-08F50C61B08A}|TicketsHub.csproj|solutionrelative:mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,48 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TicketsHub.edmx [Diagram1]",
-              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\TicketsHub.edmx",
-              "RelativeDocumentMoniker": "..\\TicketsHub for Desktop\\TicketsHub.edmx",
-              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\TicketsHub.edmx [Diagram1]",
-              "RelativeToolTip": "..\\TicketsHub for Desktop\\TicketsHub.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-03-09T00:45:11.588Z",
-              "IsPinned": true,
-              "EditorCaption": " [Diagram1]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Lobby.cs [Design]",
-              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\Lobby.cs",
-              "RelativeDocumentMoniker": "..\\TicketsHub for Desktop\\Lobby.cs",
-              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\Lobby.cs [Design]",
-              "RelativeToolTip": "..\\TicketsHub for Desktop\\Lobby.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:14:54.886Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Lobby.cs",
-              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\Lobby.cs",
-              "RelativeDocumentMoniker": "..\\TicketsHub for Desktop\\Lobby.cs",
-              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\Lobby.cs",
-              "RelativeToolTip": "..\\TicketsHub for Desktop\\Lobby.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAuwFYAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:23:45.804Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -102,92 +38,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FormMovie.cs",
-              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub\\FormMovie.cs",
-              "RelativeDocumentMoniker": "FormMovie.cs",
-              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub\\FormMovie.cs",
-              "RelativeToolTip": "FormMovie.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA8AAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub\\MainMenu.cs",
+              "RelativeDocumentMoniker": "MainMenu.cs",
+              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub\\MainMenu.cs",
+              "RelativeToolTip": "MainMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:56:34.457Z",
+              "WhenOpened": "2025-03-09T06:38:12.27Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\Program.cs",
-              "RelativeDocumentMoniker": "..\\TicketsHub for Desktop\\Program.cs",
-              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\Program.cs",
-              "RelativeToolTip": "..\\TicketsHub for Desktop\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "MainMenu.cs [Design]",
+              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub\\MainMenu.cs",
+              "RelativeDocumentMoniker": "MainMenu.cs",
+              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub\\MainMenu.cs [Design]",
+              "RelativeToolTip": "MainMenu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:45:38.344Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FormLogin.cs",
-              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\FormLogin.cs",
-              "RelativeDocumentMoniker": "..\\TicketsHub for Desktop\\FormLogin.cs",
-              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\FormLogin.cs",
-              "RelativeToolTip": "..\\TicketsHub for Desktop\\FormLogin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:08:17.845Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\Form1.cs",
-              "RelativeDocumentMoniker": "..\\TicketsHub for Desktop\\Form1.cs",
-              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\Form1.cs",
-              "RelativeToolTip": "..\\TicketsHub for Desktop\\Form1.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAhwCcAAAB9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T00:52:07.229Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FormLogin.cs [Design]",
-              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\FormLogin.cs",
-              "RelativeDocumentMoniker": "..\\TicketsHub for Desktop\\FormLogin.cs",
-              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\FormLogin.cs [Design]",
-              "RelativeToolTip": "..\\TicketsHub for Desktop\\FormLogin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T00:59:43.712Z",
+              "WhenOpened": "2025-03-09T06:38:10.18Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\Form1.cs",
-              "RelativeDocumentMoniker": "..\\TicketsHub for Desktop\\Form1.cs",
-              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub for Desktop\\Form1.cs [Design]",
-              "RelativeToolTip": "..\\TicketsHub for Desktop\\Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T00:43:12.415Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\TUGAS\\Kejuruan\\4.7\\TicketsHub By Kelompok2\\TicketsHub\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T00:41:54.26Z",
-              "EditorCaption": ""
             }
           ]
         }

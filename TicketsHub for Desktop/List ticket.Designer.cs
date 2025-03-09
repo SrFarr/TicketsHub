@@ -79,7 +79,6 @@
             this.datagridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridview.Size = new System.Drawing.Size(1089, 528);
             this.datagridview.TabIndex = 0;
-            this.datagridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.poisonDataGridView1_CellContentClick);
             // 
             // List_ticket
             // 

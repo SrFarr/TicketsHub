@@ -69,6 +69,9 @@
     <Compile Include="customer.cs">
       <DependentUpon>TicketDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -17,3 +17,5 @@ D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\T
 D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub for Desktop.exe
 D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub for Desktop.pdb
 D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub_for_Desktop.Lobby.resources
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub_for_Desktop.FormBeliTiket.resources
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub_for_Desktop.List_ticket.resources

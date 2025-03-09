@@ -17,8 +17,15 @@ namespace TicketsHub
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormLogin().Show();
-            this.Hide();
+            var res = MessageBox.Show("Apakah kamu ingin keluar?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if(res == DialogResult.Yes)
+            {
+                new FormLogin().Show();
+                MessageBox.Show("Berhasil keluar", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+            }
+            
         }
 
         private void OpenChildForm<T>() where T : Form, new()
