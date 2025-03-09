@@ -10,12 +10,14 @@ namespace TicketsHub_for_Desktop
     {
         readonly private TicketDbEntities1 db;
         readonly private string nm;
+        private int id;
          private bool isUpdating = false; // Untuk mencegah event recursive
 
-        public Lobby(string nama)
+        public Lobby(int id,string nama)
         {
             InitializeComponent();
             db = new TicketDbEntities1();
+            this.id = id;
             nm = nama;
             bigLabel1.Text = $"Halo, {nm}!";
         }
@@ -127,6 +129,15 @@ namespace TicketsHub_for_Desktop
 
             // Query database berdasarkan genre dan/atau judul
             var query = db.movies.AsQueryable();
+            var user = db.customers.FirstOrDefault(x => x.Nama == nm);
+            if (user == null)
+            {
+                MessageBox.Show("Data user tidak ditemukan!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var nama = user.Nama;
+            var email = user.Email;
 
             if (!string.IsNullOrEmpty(selectedGenre))
             {
@@ -148,8 +159,9 @@ namespace TicketsHub_for_Desktop
             }
 
             // Panggil form List_ticket dengan parameter
-            List_ticket listTicketForm = new List_ticket(selectedJudul, selectedGenre, tanggalMulai);
+            List_ticket listTicketForm = new List_ticket(id,nama,email,selectedJudul, selectedGenre, tanggalMulai,jumlahTiket);
             listTicketForm.ShowDialog();
+          
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)

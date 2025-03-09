@@ -1,25 +1,142 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TicketsHub_for_Desktop
 {
-    public partial class FormBeliTiket: Form
+    public partial class FormBeliTiket : Form
     {
-        public FormBeliTiket(/*string judul, string genre, decimal harga, DateTime tanggalMulai, string jamMulai*/)
+       
+        private string judul;
+        private string genre;
+        private double harga;
+        private string nama;
+        private string email;
+        private DateTime tanggalMulai;
+        private string jamMulai;
+        int tiket,id;
+      
+        public FormBeliTiket(int id, string nama, string email, string judul, string genre, double hargaPerTiket, DateTime tanggalMulai, string jamMulai, int tiket)
         {
             InitializeComponent();
+
+            this.id = id;
+            this.nama = nama;
+            this.email = email;
+            this.judul = judul;
+            this.genre = genre;
+            this.harga = hargaPerTiket;
+            this.tanggalMulai = tanggalMulai;
+            this.jamMulai = jamMulai;
+            this.tiket = tiket;
+
+            double totalHarga = hargaPerTiket * tiket;
+            lblHarga.Text = totalHarga.ToString("C0", new System.Globalization.CultureInfo("id-ID"));
         }
 
         private void FormBeliTiket_Load(object sender, EventArgs e)
         {
+            int hargaLength = lblHarga.Width;
+            btnBeli.Width = 268 + hargaLength;
+            // Menampilkan informasi tiket di form saat form dibuka
+            lblJudul.Text = "Nama Film: " + judul;
+            lblGenre.Text = "Genre: " + genre;
+            lblNama.Text = "Nama: " + nama;
+            lblEmail.Text = "Email: " + email;
+            lblTanggalMulai.Text = "Tanggal Mulai: " + tanggalMulai.ToString("dd MMM yyyy");
+            lblJamMulai.Text = "Jam Mulai: " + jamMulai;
+            lbltiket.Text = $"{tiket} Tiket";
+            lblKarcis.Text = $"{judul} -> {genre}";
+        }
 
+        // Misalnya kamu menambahkan tombol untuk memproses pembelian tiket
+        private void btnBeli_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtbUang.Text) || !double.TryParse(txtbUang.Text, out double uangDiberikan))
+            {
+                MessageBox.Show("Masukkan jumlah uang yang valid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Ambil harga tiket dari label (karena bisa berubah jika pakai promo)
+            double totalHarga = harga * tiket;
+            if (double.TryParse(lblHarga.Text, System.Globalization.NumberStyles.Currency, new System.Globalization.CultureInfo("id-ID"), out double hargaAkhir))
+            {
+                totalHarga = hargaAkhir; // Jika harga berubah karena promo, pakai yang terbaru
+            }
+
+            // Validasi apakah uang cukup
+            if (uangDiberikan < totalHarga)
+            {
+                MessageBox.Show($"Uang tidak cukup! Kurang {totalHarga - uangDiberikan}", "Pembayaran Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                double kembalian = uangDiberikan - totalHarga;
+                MessageBox.Show($"Tiket berhasil dibeli!\nKembalian Anda: {kembalian}", "Pembelian Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close(); // Menutup form setelah pembelian sukses
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblHarga_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbPromo_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtbPromo.Text))
+            {
+                double totalHarga = harga * tiket;
+                lblHarga.Text = totalHarga.ToString("C0", new System.Globalization.CultureInfo("id-ID"));
+            }
+        }
+
+        private void btnPromo_Click(object sender, EventArgs e)
+        {
+            if (tiket <= 3)
+            {
+                MessageBox.Show("Kode promo hanya berlaku jika membeli lebih dari 3 tiket!", "Promo Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Daftar kode promo dan diskonnya
+            var promoCodes = new Dictionary<string, int>()
+                            {
+                                {"HUGACOR", 10},
+                                {"FARRKECE", 15},
+                                {"FILM20", 20},
+                                {"TIX25", 25},
+                                {"MOVIE30", 30},
+                                {"HAPPYHOUR5", 5},
+                                {"WEEKEND12", 12},
+                                {"DISKON50", 50},
+                                {"SPECIAL8", 8},
+                                {"TIKETHEMAT50", 50}
+                            };
+
+            string inputPromo = txtbPromo.Text.ToUpper();
+            
+            if (promoCodes.ContainsKey(inputPromo))
+            {
+                int diskonPersen = promoCodes[inputPromo];
+                double totalHarga = harga * tiket; // Total harga sebelum diskon
+                double diskon = totalHarga * diskonPersen / 100; // Menghitung diskon
+                double hargaSetelahDiskon = totalHarga - diskon; // Menghitung harga setelah diskon
+
+                // Update label harga dengan harga setelah diskon
+                lblHarga.Text = hargaSetelahDiskon.ToString("C0", new System.Globalization.CultureInfo("id-ID"));
+                MessageBox.Show($"Kode promo diterapkan! Diskon {diskonPersen}%", "Promo Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Kode promo tidak valid!", "Promo Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

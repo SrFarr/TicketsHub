@@ -7,51 +7,67 @@ namespace TicketsHub_for_Desktop
 {
     public partial class List_ticket : Form
     {
-        readonly private TicketDbEntities1 db;
-        readonly private string selectedJudul;
-        readonly private string selectedGenre;
-        readonly private DateTime tanggalMulai; // Tambahkan variabel tanggal
+        private TicketDbEntities1 db;
+        private readonly string selectedJudul;
+        private readonly string selectedGenre;
+        private readonly DateTime tanggalMulai;
+        private string nama;
+        private string email;
+        private int jumlahTiket, id;
 
-        public List_ticket(string judul, string genre, DateTime tanggal)
+        public List_ticket(int id, string nama, string email, string judul, string genre, DateTime tanggal, int tiket)
         {
             InitializeComponent();
             db = new TicketDbEntities1();
+            this.id = id;
+            this.nama = nama;
+            this.email = email;
             selectedJudul = judul;
             selectedGenre = genre;
-            tanggalMulai = tanggal; // Simpan tanggal
+            tanggalMulai = tanggal;
+            jumlahTiket = tiket; // Menyimpan jumlah tiket
             this.Load += new System.EventHandler(this.List_ticket_Load);
 
+       
         }
 
         private void List_ticket_Load(object sender, EventArgs e)
         {
-                 LoadMovies();
+            LoadMovies();
         }
 
         private void LoadMovies()
         {
-            var totalMovies = db.movies.Count();
-            if (totalMovies == 0)
+            if (!db.movies.Any())
             {
                 MessageBox.Show("Database film kosong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var movies = db.movies
-                .Where(m => (string.IsNullOrEmpty(selectedJudul) || m.Judul.ToLower() == selectedJudul.ToLower()) &&
-                            (string.IsNullOrEmpty(selectedGenre) || m.Genre.ToLower() == selectedGenre.ToLower()) &&
-                            m.Tanggal_mulai >= tanggalMulai)
-                .Select(m => new
-                {
-                    m.Judul,
-                    m.Genre,
-                    m.Harga_tiket,
-                    m.Tanggal_mulai,
-                    m.Jam_mulai
-                })
-                .ToList();
+            var moviesQuery = db.movies.AsQueryable();
 
-            if (movies.Count == 0)
+            if (!string.IsNullOrEmpty(selectedJudul))
+            {
+                moviesQuery = moviesQuery.Where(m => m.Judul.Equals(selectedJudul, StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (!string.IsNullOrEmpty(selectedGenre))
+            {
+                moviesQuery = moviesQuery.Where(m => m.Genre.Equals(selectedGenre, StringComparison.OrdinalIgnoreCase));
+            }
+
+            moviesQuery = moviesQuery.Where(m => m.Tanggal_mulai >= tanggalMulai);
+
+            var movies = moviesQuery.Select(m => new
+            {
+                m.Judul,
+                m.Genre,
+                m.Harga_tiket,
+                m.Tanggal_mulai,
+                m.Jam_mulai
+            }).ToList();
+
+            if (!movies.Any())
             {
                 MessageBox.Show("Tidak ada film yang sesuai filter.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -60,27 +76,43 @@ namespace TicketsHub_for_Desktop
 
             datagridview.DataSource = movies;
             datagridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (!datagridview.Columns.Cast<DataGridViewColumn>().Any(c => c.Name == "BeliTiket"))
+            {
+                DataGridViewButtonColumn beliTiketColumn = new DataGridViewButtonColumn
+                {
+                    Name = "BeliTiket",
+                    HeaderText = "Beli Tiket",
+                    Text = "Beli",
+                    UseColumnTextForButtonValue = true
+                };
+                datagridview.Columns.Add(beliTiketColumn);
+            }
         }
 
 
         private void datagridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          /*  if (e.RowIndex >= 0 && datagridview.Columns[e.ColumnIndex].Name == "BeliTiket")
+            // Memeriksa apakah klik terjadi pada tombol "Beli Tiket"
+            if (e.RowIndex >= 0 && datagridview.Columns[e.ColumnIndex].Name == "BeliTiket")
             {
                 string judul = datagridview.Rows[e.RowIndex].Cells["Judul"].Value.ToString();
                 string genre = datagridview.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
-                decimal harga = Convert.ToDecimal(datagridview.Rows[e.RowIndex].Cells["Harga_tiket"].Value);
+                double hargaPerTiket = Convert.ToDouble(datagridview.Rows[e.RowIndex].Cells["Harga_tiket"].Value);
                 DateTime tanggal = Convert.ToDateTime(datagridview.Rows[e.RowIndex].Cells["Tanggal_mulai"].Value);
                 string jam = datagridview.Rows[e.RowIndex].Cells["Jam_mulai"].Value.ToString();
 
-                FormBeliTiket formBeli = new FormBeliTiket(judul, genre, harga, tanggal, jam);
+                // Pastikan jumlah tiket tidak 0 atau negatif
+                if (jumlahTiket <= 0)
+                {
+                    MessageBox.Show("Jumlah tiket harus lebih dari 0!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Membuka form pembelian tiket
+                FormBeliTiket formBeli = new FormBeliTiket(id,nama.ToString(),email.ToString(),judul, genre, hargaPerTiket, tanggal, jam, jumlahTiket);
                 formBeli.ShowDialog();
             }
-*/        }
-
-        private void datagridview_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

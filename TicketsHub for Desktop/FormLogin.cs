@@ -41,7 +41,7 @@ namespace TicketsHub_for_Desktop
             if(data != null)
             {
                 MessageBox.Show("Welcome, " + data.Nama, "Information");
-                lobby = new Lobby(data.Nama);
+                lobby = new Lobby(data.Id,data.Nama);
                 lobby.Show();
                 this.Hide();
             }
