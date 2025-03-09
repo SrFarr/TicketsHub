@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TicketDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nama" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Nomor_telepon" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="movies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Judul" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Genre" Type="nvarchar" MaxLength="100" />
+    <Property Name="Harga_tiket" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Stok_tiket" Type="int" Nullable="false" />
+    <Property Name="Jam_mulai" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Tanggal_mulai" Type="date" />
+  </EntityType>
+  <EntityType Name="tickets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_pelanggan" Type="int" Nullable="false" />
+    <Property Name="Id_film" Type="int" Nullable="false" />
+    <Property Name="Jumlah_tiket" Type="int" Nullable="false" />
+    <Property Name="Total_harga" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Status_pembayaran" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Film">
+    <End Role="movies" Type="Self.movies" Multiplicity="1" />
+    <End Role="tickets" Type="Self.tickets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tickets">
+        <PropertyRef Name="Id_film" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pelanggan">
+    <End Role="customers" Type="Self.customers" Multiplicity="1" />
+    <End Role="tickets" Type="Self.tickets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tickets">
+        <PropertyRef Name="Id_pelanggan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TicketDbModelStoreContainer">
+    <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="movies" EntityType="Self.movies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tickets" EntityType="Self.tickets" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Film" Association="Self.FK_Film">
+      <End Role="movies" EntitySet="movies" />
+      <End Role="tickets" EntitySet="tickets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pelanggan" Association="Self.FK_Pelanggan">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="tickets" EntitySet="tickets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

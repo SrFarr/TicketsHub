@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TicketDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nama" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Nomor_telepon" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="movies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Judul" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Genre" Type="nvarchar" MaxLength="100" />
+          <Property Name="Harga_tiket" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Stok_tiket" Type="int" Nullable="false" />
+          <Property Name="Jam_mulai" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Tanggal_mulai" Type="date" />
+        </EntityType>
+        <EntityType Name="tickets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_pelanggan" Type="int" Nullable="false" />
+          <Property Name="Id_film" Type="int" Nullable="false" />
+          <Property Name="Jumlah_tiket" Type="int" Nullable="false" />
+          <Property Name="Total_harga" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Status_pembayaran" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Film">
+          <End Role="movies" Type="Self.movies" Multiplicity="1" />
+          <End Role="tickets" Type="Self.tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="movies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tickets">
+              <PropertyRef Name="Id_film" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pelanggan">
+          <End Role="customers" Type="Self.customers" Multiplicity="1" />
+          <End Role="tickets" Type="Self.tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tickets">
+              <PropertyRef Name="Id_pelanggan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TicketDbModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movies" EntityType="Self.movies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tickets" EntityType="Self.tickets" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Film" Association="Self.FK_Film">
+            <End Role="movies" EntitySet="movies" />
+            <End Role="tickets" EntitySet="tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pelanggan" Association="Self.FK_Pelanggan">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="tickets" EntitySet="tickets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TicketDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nama" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nomor_telepon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tickets" Relationship="Self.FK_Pelanggan" FromRole="customers" ToRole="tickets" />
+        </EntityType>
+        <EntityType Name="movy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Judul" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Genre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Harga_tiket" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Stok_tiket" Type="Int32" Nullable="false" />
+          <Property Name="Jam_mulai" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Tanggal_mulai" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tickets" Relationship="Self.FK_Film" FromRole="movies" ToRole="tickets" />
+        </EntityType>
+        <EntityType Name="ticket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_pelanggan" Type="Int32" Nullable="false" />
+          <Property Name="Id_film" Type="Int32" Nullable="false" />
+          <Property Name="Jumlah_tiket" Type="Int32" Nullable="false" />
+          <Property Name="Total_harga" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Status_pembayaran" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="customer" Relationship="Self.FK_Pelanggan" FromRole="tickets" ToRole="customers" />
+          <NavigationProperty Name="movy" Relationship="Self.FK_Film" FromRole="tickets" ToRole="movies" />
+        </EntityType>
+        <Association Name="FK_Pelanggan">
+          <End Role="customers" Type="Self.customer" Multiplicity="1" />
+          <End Role="tickets" Type="Self.ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tickets">
+              <PropertyRef Name="Id_pelanggan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Film">
+          <End Role="movies" Type="Self.movy" Multiplicity="1" />
+          <End Role="tickets" Type="Self.ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="movies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tickets">
+              <PropertyRef Name="Id_film" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TicketDbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admins" EntityType="Self.admin" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="movies" EntityType="Self.movy" />
+          <EntitySet Name="tickets" EntityType="Self.ticket" />
+          <AssociationSet Name="FK_Pelanggan" Association="Self.FK_Pelanggan">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="tickets" EntitySet="tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Film" Association="Self.FK_Film">
+            <End Role="movies" EntitySet="movies" />
+            <End Role="tickets" EntitySet="tickets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TicketDbModelStoreContainer" CdmEntityContainer="TicketDbEntities1">
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="TicketDbModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="TicketDbModel.customer">
+              <MappingFragment StoreEntitySet="customers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nama" ColumnName="Nama" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Nomor_telepon" ColumnName="Nomor_telepon" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="movies">
+            <EntityTypeMapping TypeName="TicketDbModel.movy">
+              <MappingFragment StoreEntitySet="movies">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Judul" ColumnName="Judul" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Harga_tiket" ColumnName="Harga_tiket" />
+                <ScalarProperty Name="Stok_tiket" ColumnName="Stok_tiket" />
+                <ScalarProperty Name="Jam_mulai" ColumnName="Jam_mulai" />
+                <ScalarProperty Name="Tanggal_mulai" ColumnName="Tanggal_mulai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tickets">
+            <EntityTypeMapping TypeName="TicketDbModel.ticket">
+              <MappingFragment StoreEntitySet="tickets">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_pelanggan" ColumnName="Id_pelanggan" />
+                <ScalarProperty Name="Id_film" ColumnName="Id_film" />
+                <ScalarProperty Name="Jumlah_tiket" ColumnName="Jumlah_tiket" />
+                <ScalarProperty Name="Total_harga" ColumnName="Total_harga" />
+                <ScalarProperty Name="Status_pembayaran" ColumnName="Status_pembayaran" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
