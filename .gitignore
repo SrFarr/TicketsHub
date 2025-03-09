@@ -1,0 +1,6 @@
+.vsidx
+.cache
+.vs/*
+TicketsHub/.vs/*
+TicketsHub/obj/
+TicketsHub for Desktop/obj/
