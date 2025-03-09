@@ -8,14 +8,14 @@ namespace TicketsHub_for_Desktop
 {
     public partial class Lobby : Form
     {
-        private TicketDbEntities db;
-        private string nm;
-        private bool isUpdating = false; // Untuk mencegah event recursive
+        readonly private TicketDbEntities1 db;
+        readonly private string nm;
+         private bool isUpdating = false; // Untuk mencegah event recursive
 
         public Lobby(string nama)
         {
             InitializeComponent();
-            db = new TicketDbEntities();
+            db = new TicketDbEntities1();
             nm = nama;
             bigLabel1.Text = $"Halo, {nm}!";
         }
@@ -106,11 +106,55 @@ namespace TicketsHub_for_Desktop
 
         private void btnCariFIlm_Click(object sender, EventArgs e)
         {
+
             string selectedJudul = cbJudul.SelectedItem?.ToString();
             string selectedGenre = cbGenre.SelectedItem?.ToString();
+            DateTime tanggalMulai = dateTanggal_mulai.Value;
+            int jumlahTiket = Convert.ToInt32(numJumlahTiket.Value);
 
-            List_ticket listTicketForm = new List_ticket(selectedJudul, selectedGenre);
+            // Pastikan pengguna memilih minimal genre atau judul
+            if (string.IsNullOrEmpty(selectedJudul) && string.IsNullOrEmpty(selectedGenre))
+            {
+                MessageBox.Show("Pastikan Anda memilih minimal genre atau judul!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (jumlahTiket <= 0)
+            {
+                MessageBox.Show("Pastikan jumlah tiket lebih dari 0!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Query database berdasarkan genre dan/atau judul
+            var query = db.movies.AsQueryable();
+
+            if (!string.IsNullOrEmpty(selectedGenre))
+            {
+                query = query.Where(x => x.Genre == selectedGenre);
+            }
+
+            if (!string.IsNullOrEmpty(selectedJudul))
+            {
+                query = query.Where(x => x.Judul == selectedJudul);
+            }
+
+            // Pastikan ada film yang tersedia setelah tanggal mulai yang dipilih
+            var filmAda = query.Any(x => x.Tanggal_mulai >= tanggalMulai);
+
+            if (!filmAda)
+            {
+                MessageBox.Show("Tidak ada film yang tayang setelah tanggal yang dipilih.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Panggil form List_ticket dengan parameter
+            List_ticket listTicketForm = new List_ticket(selectedJudul, selectedGenre, tanggalMulai);
             listTicketForm.ShowDialog();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -13,11 +13,11 @@ namespace TicketsHub_for_Desktop
     public partial class FormLogin: Form
     {
         Lobby lobby;
-        TicketDbEntities db;
+        TicketDbEntities1 db;
         public FormLogin()
         {
             InitializeComponent();
-            db = new TicketDbEntities();
+            db = new TicketDbEntities1();
         
         }
         void login()
@@ -70,6 +70,13 @@ namespace TicketsHub_for_Desktop
         private void btnLogin_Click(object sender, EventArgs e)
         {
             login();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form1 regist = new Form1();
+            regist.ShowDialog();
+
         }
     }
 }

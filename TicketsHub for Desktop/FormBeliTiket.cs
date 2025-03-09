@@ -12,7 +12,7 @@ namespace TicketsHub_for_Desktop
 {
     public partial class FormBeliTiket: Form
     {
-        public FormBeliTiket(string judul, string genre, decimal harga, DateTime tanggalMulai, string jamMulai)
+        public FormBeliTiket(/*string judul, string genre, decimal harga, DateTime tanggalMulai, string jamMulai*/)
         {
             InitializeComponent();
         }

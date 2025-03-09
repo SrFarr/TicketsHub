@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="TicketDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="customers">
           <Key>
             <PropertyRef Name="Id" />
@@ -63,6 +72,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="TicketDbModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="movies" EntityType="Self.movies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tickets" EntityType="Self.tickets" Schema="dbo" store:Type="Tables" />
@@ -80,6 +90,15 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TicketDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityType Name="customer">
           <Key>
             <PropertyRef Name="Id" />
@@ -141,7 +160,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TicketDbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TicketDbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admins" EntityType="Self.admin" />
           <EntitySet Name="customers" EntityType="Self.customer" />
           <EntitySet Name="movies" EntityType="Self.movy" />
           <EntitySet Name="tickets" EntityType="Self.ticket" />
@@ -159,7 +179,17 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TicketDbModelStoreContainer" CdmEntityContainer="TicketDbEntities">
+        <EntityContainerMapping StorageEntityContainer="TicketDbModelStoreContainer" CdmEntityContainer="TicketDbEntities1">
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="TicketDbModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="customers">
             <EntityTypeMapping TypeName="TicketDbModel.customer">
               <MappingFragment StoreEntitySet="customers">

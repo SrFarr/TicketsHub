@@ -13,10 +13,10 @@ namespace TicketsHub_for_Desktop
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TicketDbEntities : DbContext
+    public partial class TicketDbEntities1 : DbContext
     {
-        public TicketDbEntities()
-            : base("name=TicketDbEntities")
+        public TicketDbEntities1()
+            : base("name=TicketDbEntities1")
         {
         }
     
@@ -25,6 +25,7 @@ namespace TicketsHub_for_Desktop
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<admin> admins { get; set; }
         public virtual DbSet<customer> customers { get; set; }
         public virtual DbSet<movy> movies { get; set; }
         public virtual DbSet<ticket> tickets { get; set; }

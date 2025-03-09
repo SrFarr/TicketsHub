@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,12 @@ namespace TicketsHub_for_Desktop
 {
     public partial class Form1: Form
     {
-        readonly TicketDbEntities db;
+        readonly TicketDbEntities1 db;
         FormLogin login;
         public Form1()
         {
             InitializeComponent();
-            db = new TicketDbEntities();
+            db = new TicketDbEntities1();
             login = new FormLogin();
         }
         void regist()
@@ -44,12 +45,23 @@ namespace TicketsHub_for_Desktop
             cs.Email = txtbEmail.Text.Trim();
             cs.Nomor_telepon = txtbNoTelp.Text.Trim();
             cs.password = txtbPassword.Text.Trim();
+            try
+            {
+                db.customers.Add(cs);
+                db.SaveChanges();
+                MessageBox.Show("Berhasil Daftar!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                login.Show();
+                this.Hide();
+            }
+            catch (DbUpdateException ex)
+            {
+                MessageBox.Show($"Error saat menyimpan data: {ex.InnerException?.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error umum: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            db.customers.Add(cs);
-            db.SaveChanges();
-            MessageBox.Show("Berhasil Daftar!", "Informasi", MessageBoxButtons.OK,MessageBoxIcon.Information);
-            login.Show();
-            this.Hide();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
