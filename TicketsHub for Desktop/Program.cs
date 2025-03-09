@@ -16,7 +16,7 @@ namespace TicketsHub_for_Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Lobby("Farr"));
         }
     }
 }
