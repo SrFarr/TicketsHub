@@ -55,9 +55,9 @@
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(304, 293);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 23);
+            this.label1.Size = new System.Drawing.Size(87, 23);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Email";
+            this.label1.Text = "Username";
             // 
             // label2
             // 
@@ -111,7 +111,7 @@
             this.txtbEmail.Name = "txtbEmail";
             this.txtbEmail.Size = new System.Drawing.Size(284, 22);
             this.txtbEmail.TabIndex = 5;
-            this.txtbEmail.Text = "Email";
+            this.txtbEmail.Text = "Username";
             this.txtbEmail.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtbEmail_MouseClick);
             // 
             // airCheckBox1

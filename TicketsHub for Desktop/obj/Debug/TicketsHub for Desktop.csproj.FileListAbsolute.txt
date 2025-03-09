@@ -1,0 +1,19 @@
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\bin\Debug\TicketsHub for Desktop.exe.config
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\bin\Debug\TicketsHub for Desktop.exe
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\bin\Debug\TicketsHub for Desktop.pdb
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\bin\Debug\EntityFramework.dll
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\bin\Debug\EntityFramework.SqlServer.dll
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\bin\Debug\ReaLTaiizor.dll
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\bin\Debug\EntityFramework.xml
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\bin\Debug\EntityFramework.SqlServer.xml
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\bin\Debug\ReaLTaiizor.xml
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub for Desktop.csproj.AssemblyReference.cache
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub_for_Desktop.Form1.resources
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub_for_Desktop.FormLogin.resources
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub_for_Desktop.Properties.Resources.resources
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub for Desktop.csproj.GenerateResource.cache
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub for Desktop.csproj.CoreCompileInputs.cache
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsH.32DC0BC0.Up2Date
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub for Desktop.exe
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub for Desktop.pdb
+D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub for Desktop\obj\Debug\TicketsHub_for_Desktop.Lobby.resources

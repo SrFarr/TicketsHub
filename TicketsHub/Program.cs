@@ -16,7 +16,7 @@ namespace TicketsHub
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenu("Farr"));
+            Application.Run(new FormLogin());
         }
     }
 }

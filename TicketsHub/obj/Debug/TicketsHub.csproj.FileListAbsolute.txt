@@ -16,7 +16,6 @@ D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub\bin\Debug\EntityFramewo
 D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub\bin\Debug\EntityFramework.xml
 D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub\bin\Debug\EntityFramework.SqlServer.xml
 D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub\obj\Debug\TicketsHub.MainMenu.resources
-D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub\obj\Debug\TicketsHub.FormRegister.resources
 D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub\obj\Debug\TicketsHub.FormCustomers.resources
 D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub\obj\Debug\TicketsHub.FormTicketadm.resources
 D:\TUGAS\Kejuruan\4.7\TicketsHub By Kelompok2\TicketsHub\obj\Debug\TicketsHub.FormMovie.resources

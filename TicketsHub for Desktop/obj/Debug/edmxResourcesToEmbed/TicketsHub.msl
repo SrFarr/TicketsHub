@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TicketDbModelStoreContainer" CdmEntityContainer="TicketDbEntities">
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="TicketDbModel.customer">
+        <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nama" ColumnName="Nama" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Nomor_telepon" ColumnName="Nomor_telepon" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movies">
+      <EntityTypeMapping TypeName="TicketDbModel.movy">
+        <MappingFragment StoreEntitySet="movies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Judul" ColumnName="Judul" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="Harga_tiket" ColumnName="Harga_tiket" />
+          <ScalarProperty Name="Stok_tiket" ColumnName="Stok_tiket" />
+          <ScalarProperty Name="Jam_mulai" ColumnName="Jam_mulai" />
+          <ScalarProperty Name="Tanggal_mulai" ColumnName="Tanggal_mulai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tickets">
+      <EntityTypeMapping TypeName="TicketDbModel.ticket">
+        <MappingFragment StoreEntitySet="tickets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_pelanggan" ColumnName="Id_pelanggan" />
+          <ScalarProperty Name="Id_film" ColumnName="Id_film" />
+          <ScalarProperty Name="Jumlah_tiket" ColumnName="Jumlah_tiket" />
+          <ScalarProperty Name="Total_harga" ColumnName="Total_harga" />
+          <ScalarProperty Name="Status_pembayaran" ColumnName="Status_pembayaran" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
