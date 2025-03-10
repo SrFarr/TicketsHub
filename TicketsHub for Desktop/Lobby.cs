@@ -11,7 +11,7 @@ namespace TicketsHub_for_Desktop
         readonly private TicketDbEntities1 db;
         readonly private string nm;
         private int id;
-         private bool isUpdating = false; // Untuk mencegah event recursive
+        private bool isUpdating = false; // Untuk mencegah event recursive
 
         public Lobby(int id,string nama)
         {
@@ -33,8 +33,8 @@ namespace TicketsHub_for_Desktop
             isUpdating = true;
 
             var movies = string.IsNullOrEmpty(genre)
-                ? db.movies.Select(x => x.Judul).ToList()
-                : db.movies.Where(x => x.Genre == genre).Select(x => x.Judul).ToList();
+                ? db.movies.Select(x => x.Judul).Distinct().ToList()
+                : db.movies.Where(x => x.Genre == genre).Select(x => x.Judul).Distinct().ToList();
 
             movies.Insert(0, ""); // Tambahkan opsi None di awal
 
@@ -74,6 +74,7 @@ namespace TicketsHub_for_Desktop
 
             isUpdating = false;
         }
+
         private void cbGenre_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isUpdating) return;
@@ -138,7 +139,6 @@ namespace TicketsHub_for_Desktop
 
             var nama = user.Nama;
             var email = user.Email;
-
             if (!string.IsNullOrEmpty(selectedGenre))
             {
                 query = query.Where(x => x.Genre == selectedGenre);

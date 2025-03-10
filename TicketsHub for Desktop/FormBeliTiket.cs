@@ -14,13 +14,14 @@ namespace TicketsHub_for_Desktop
         private string email;
         private DateTime tanggalMulai;
         private string jamMulai;
-        int tiket,id;
-      
-        public FormBeliTiket(int id, string nama, string email, string judul, string genre, double hargaPerTiket, DateTime tanggalMulai, string jamMulai, int tiket)
+        int tiket,id,idFilm;
+        TicketDbEntities1 db;
+        public FormBeliTiket(int id, int idFilm, string nama, string email, string judul, string genre, double hargaPerTiket, DateTime tanggalMulai, string jamMulai, int tiket)
         {
             InitializeComponent();
-
+            db = new TicketDbEntities1();
             this.id = id;
+            this.idFilm = idFilm;
             this.nama = nama;
             this.email = email;
             this.judul = judul;
@@ -33,24 +34,7 @@ namespace TicketsHub_for_Desktop
             double totalHarga = hargaPerTiket * tiket;
             lblHarga.Text = totalHarga.ToString("C0", new System.Globalization.CultureInfo("id-ID"));
         }
-
-        private void FormBeliTiket_Load(object sender, EventArgs e)
-        {
-            int hargaLength = lblHarga.Width;
-            btnBeli.Width = 268 + hargaLength;
-            // Menampilkan informasi tiket di form saat form dibuka
-            lblJudul.Text = "Nama Film: " + judul;
-            lblGenre.Text = "Genre: " + genre;
-            lblNama.Text = "Nama: " + nama;
-            lblEmail.Text = "Email: " + email;
-            lblTanggalMulai.Text = "Tanggal Mulai: " + tanggalMulai.ToString("dd MMM yyyy");
-            lblJamMulai.Text = "Jam Mulai: " + jamMulai;
-            lbltiket.Text = $"{tiket} Tiket";
-            lblKarcis.Text = $"{judul} -> {genre}";
-        }
-
-        // Misalnya kamu menambahkan tombol untuk memproses pembelian tiket
-        private void btnBeli_Click(object sender, EventArgs e)
+        void Belitiket()
         {
             if (string.IsNullOrEmpty(txtbUang.Text) || !double.TryParse(txtbUang.Text, out double uangDiberikan))
             {
@@ -73,9 +57,53 @@ namespace TicketsHub_for_Desktop
             else
             {
                 double kembalian = uangDiberikan - totalHarga;
+                var statusPembayaran = "Lunas";
+                ticket ticket = new ticket();
+                ticket.Id_pelanggan = id;
+                ticket.Id_film = idFilm;
+                decimal hargaakhir;
+                if (decimal.TryParse(lblHarga.Text, System.Globalization.NumberStyles.Currency,
+                    new System.Globalization.CultureInfo("id-ID"), out hargaakhir))
+                {
+                    ticket.Total_harga = hargaakhir; // Konversi ke int jika memang harus
+                }
+                else
+                {
+                    MessageBox.Show("Gagal mengonversi harga tiket!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                ticket.Status_pembayaran = statusPembayaran;
+                
+                db.tickets.Add(ticket);
+                db.SaveChanges();
                 MessageBox.Show($"Tiket berhasil dibeli!\nKembalian Anda: {kembalian}", "Pembelian Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); // Menutup form setelah pembelian sukses
+
+                this.Close(); 
             }
+          
+        }
+        private void FormBeliTiket_Load(object sender, EventArgs e)
+        {
+          
+            int hargaLength = lblHarga.Width;
+            btnBeli.Width = 268 + hargaLength;
+            // Menampilkan informasi tiket di form saat form dibuka
+            lblJudul.Text = "Nama Film: " + judul;
+            lblGenre.Text = "Genre: " + genre;
+            lblNama.Text = "Nama: " + nama;
+            lblEmail.Text = "Email: " + email;
+            lblTanggalMulai.Text = "Tanggal Mulai: " + tanggalMulai.ToString("dd MMM yyyy");
+            lblJamMulai.Text = "Jam Mulai: " + jamMulai;
+            lbltiket.Text = $"{tiket} Tiket";
+            lblKarcis.Text = $"{judul} -> {genre}";
+        }
+
+       
+        private void btnBeli_Click(object sender, EventArgs e)
+        {
+            Belitiket();  
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -95,6 +123,11 @@ namespace TicketsHub_for_Desktop
                 double totalHarga = harga * tiket;
                 lblHarga.Text = totalHarga.ToString("C0", new System.Globalization.CultureInfo("id-ID"));
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void btnPromo_Click(object sender, EventArgs e)

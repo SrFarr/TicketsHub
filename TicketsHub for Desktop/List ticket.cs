@@ -13,13 +13,14 @@ namespace TicketsHub_for_Desktop
         private readonly DateTime tanggalMulai;
         private string nama;
         private string email;
-        private int jumlahTiket, id;
+        private int jumlahTiket, idUser ;
 
-        public List_ticket(int id, string nama, string email, string judul, string genre, DateTime tanggal, int tiket)
+        public List_ticket(int idUser, string nama, string email, string judul, string genre, DateTime tanggal, int tiket)
         {
             InitializeComponent();
             db = new TicketDbEntities1();
-            this.id = id;
+            this.idUser = idUser;
+     
             this.nama = nama;
             this.email = email;
             selectedJudul = judul;
@@ -33,6 +34,7 @@ namespace TicketsHub_for_Desktop
 
         private void List_ticket_Load(object sender, EventArgs e)
         {
+           
             LoadMovies();
         }
 
@@ -60,6 +62,7 @@ namespace TicketsHub_for_Desktop
 
             var movies = moviesQuery.Select(m => new
             {
+                m.Id,
                 m.Judul,
                 m.Genre,
                 m.Harga_tiket,
@@ -73,8 +76,9 @@ namespace TicketsHub_for_Desktop
                 this.Close();
                 return;
             }
-
             datagridview.DataSource = movies;
+            datagridview.Columns["Id"].Visible = false;
+           
             datagridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             if (!datagridview.Columns.Cast<DataGridViewColumn>().Any(c => c.Name == "BeliTiket"))
@@ -90,6 +94,10 @@ namespace TicketsHub_for_Desktop
             }
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void datagridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -101,7 +109,7 @@ namespace TicketsHub_for_Desktop
                 double hargaPerTiket = Convert.ToDouble(datagridview.Rows[e.RowIndex].Cells["Harga_tiket"].Value);
                 DateTime tanggal = Convert.ToDateTime(datagridview.Rows[e.RowIndex].Cells["Tanggal_mulai"].Value);
                 string jam = datagridview.Rows[e.RowIndex].Cells["Jam_mulai"].Value.ToString();
-
+                int idFilm = Convert.ToInt32(datagridview.Rows[e.RowIndex].Cells["Id"].Value);
                 // Pastikan jumlah tiket tidak 0 atau negatif
                 if (jumlahTiket <= 0)
                 {
@@ -110,7 +118,7 @@ namespace TicketsHub_for_Desktop
                 }
 
                 // Membuka form pembelian tiket
-                FormBeliTiket formBeli = new FormBeliTiket(id,nama.ToString(),email.ToString(),judul, genre, hargaPerTiket, tanggal, jam, jumlahTiket);
+                FormBeliTiket formBeli = new FormBeliTiket(idUser,idFilm, nama.ToString(),email.ToString(),judul, genre, hargaPerTiket, tanggal, jam, jumlahTiket);
                 formBeli.ShowDialog();
             }
         }
