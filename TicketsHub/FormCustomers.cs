@@ -152,5 +152,10 @@ namespace TicketsHub
         {
             delete();
         }
+
+        private void lbl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
