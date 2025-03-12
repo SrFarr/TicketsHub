@@ -160,13 +160,21 @@ namespace TicketsHub_for_Desktop
 
             // Panggil form List_ticket dengan parameter
             List_ticket listTicketForm = new List_ticket(id,nama,email,selectedJudul, selectedGenre, tanggalMulai,jumlahTiket);
-            listTicketForm.ShowDialog();
+            listTicketForm.Show();
+            this.Hide();
           
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            TiketSaya myTiket = new TiketSaya(id,nm);
+            myTiket.Show();
+            this.Hide();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace TicketsHub_for_Desktop
         private string nama;
         private string email;
         private int jumlahTiket, idUser ;
-
+        private int idtiket = 0;
         public List_ticket(int idUser, string nama, string email, string judul, string genre, DateTime tanggal, int tiket)
         {
             InitializeComponent();
@@ -96,7 +96,9 @@ namespace TicketsHub_for_Desktop
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Lobby lobby = new Lobby(idUser,nama);
+            lobby.Show();
+            this.Hide();
         }
 
         private void datagridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -118,8 +120,9 @@ namespace TicketsHub_for_Desktop
                 }
 
                 // Membuka form pembelian tiket
-                FormBeliTiket formBeli = new FormBeliTiket(idUser,idFilm, nama.ToString(),email.ToString(),judul, genre, hargaPerTiket, tanggal, jam, jumlahTiket);
-                formBeli.ShowDialog();
+                FormBeliTiket formBeli = new FormBeliTiket(idtiket,idUser,idFilm, nama.ToString(),email.ToString(),judul, genre, hargaPerTiket, tanggal, jam, jumlahTiket);
+                formBeli.Show();
+                this.Hide();
             }
         }
     }

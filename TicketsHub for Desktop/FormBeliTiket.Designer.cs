@@ -54,29 +54,34 @@
             this.txtbUang = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblKarcis = new System.Windows.Forms.Label();
+            this.btnBayarNanti = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblJudul
             // 
             this.lblJudul.AutoSize = true;
-            this.lblJudul.Font = new System.Drawing.Font("Modern No. 20", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJudul.Location = new System.Drawing.Point(52, 328);
+            this.lblJudul.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJudul.ForeColor = System.Drawing.Color.White;
+            this.lblJudul.Location = new System.Drawing.Point(26, 211);
             this.lblJudul.Name = "lblJudul";
-            this.lblJudul.Size = new System.Drawing.Size(95, 34);
+            this.lblJudul.Size = new System.Drawing.Size(53, 20);
             this.lblJudul.TabIndex = 0;
             this.lblJudul.Text = "Judul";
             // 
             // lblGenre
             // 
             this.lblGenre.AutoSize = true;
-            this.lblGenre.Font = new System.Drawing.Font("Modern No. 20", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenre.Location = new System.Drawing.Point(52, 397);
+            this.lblGenre.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenre.ForeColor = System.Drawing.Color.White;
+            this.lblGenre.Location = new System.Drawing.Point(26, 280);
             this.lblGenre.Name = "lblGenre";
-            this.lblGenre.Size = new System.Drawing.Size(99, 34);
+            this.lblGenre.Size = new System.Drawing.Size(55, 20);
             this.lblGenre.TabIndex = 1;
             this.lblGenre.Text = "Genre";
             // 
@@ -90,7 +95,6 @@
             this.lblHarga.Size = new System.Drawing.Size(96, 32);
             this.lblHarga.TabIndex = 1;
             this.lblHarga.Text = "Harga";
-            this.lblHarga.Click += new System.EventHandler(this.lblHarga_Click);
             // 
             // lblTanggalMulai
             // 
@@ -196,7 +200,6 @@
             this.label2.Size = new System.Drawing.Size(160, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Total Pembayaran";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // bigLabel3
             // 
@@ -268,13 +271,12 @@
             this.txtbPromo.Name = "txtbPromo";
             this.txtbPromo.Size = new System.Drawing.Size(325, 22);
             this.txtbPromo.TabIndex = 8;
-            this.txtbPromo.TextChanged += new System.EventHandler(this.txtbPromo_TextChanged);
             // 
             // btnPromo
             // 
             this.btnPromo.Location = new System.Drawing.Point(964, 318);
             this.btnPromo.Name = "btnPromo";
-            this.btnPromo.Size = new System.Drawing.Size(75, 36);
+            this.btnPromo.Size = new System.Drawing.Size(135, 36);
             this.btnPromo.TabIndex = 9;
             this.btnPromo.Text = "Pakai";
             this.btnPromo.UseVisualStyleBackColor = true;
@@ -283,37 +285,38 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Modern No. 20", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(52, 250);
+            this.lblEmail.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.ForeColor = System.Drawing.Color.White;
+            this.lblEmail.Location = new System.Drawing.Point(26, 133);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(104, 34);
+            this.lblEmail.Size = new System.Drawing.Size(57, 20);
             this.lblEmail.TabIndex = 1;
             this.lblEmail.Text = "Email";
             // 
             // lblNama
             // 
             this.lblNama.AutoSize = true;
-            this.lblNama.Font = new System.Drawing.Font("Modern No. 20", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNama.Location = new System.Drawing.Point(52, 184);
+            this.lblNama.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNama.ForeColor = System.Drawing.Color.White;
+            this.lblNama.Location = new System.Drawing.Point(26, 67);
             this.lblNama.Name = "lblNama";
-            this.lblNama.Size = new System.Drawing.Size(97, 34);
+            this.lblNama.Size = new System.Drawing.Size(54, 20);
             this.lblNama.TabIndex = 1;
             this.lblNama.Text = "Nama";
             // 
             // txtbUang
             // 
             this.txtbUang.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtbUang.Location = new System.Drawing.Point(622, 426);
+            this.txtbUang.Location = new System.Drawing.Point(622, 429);
             this.txtbUang.Name = "txtbUang";
             this.txtbUang.Size = new System.Drawing.Size(325, 22);
             this.txtbUang.TabIndex = 8;
-            this.txtbUang.TextChanged += new System.EventHandler(this.txtbPromo_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(617, 397);
+            this.label4.Location = new System.Drawing.Point(617, 400);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(163, 26);
             this.label4.TabIndex = 0;
@@ -329,12 +332,36 @@
             this.lblKarcis.TabIndex = 10;
             this.lblKarcis.Text = "karcis";
             // 
+            // btnBayarNanti
+            // 
+            this.btnBayarNanti.Location = new System.Drawing.Point(964, 421);
+            this.btnBayarNanti.Name = "btnBayarNanti";
+            this.btnBayarNanti.Size = new System.Drawing.Size(135, 36);
+            this.btnBayarNanti.TabIndex = 9;
+            this.btnBayarNanti.Text = "Bayar Nanti";
+            this.btnBayarNanti.UseVisualStyleBackColor = true;
+            this.btnBayarNanti.Click += new System.EventHandler(this.btnBayarNanti_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.lblNama);
+            this.panel2.Controls.Add(this.lblEmail);
+            this.panel2.Controls.Add(this.lblGenre);
+            this.panel2.Controls.Add(this.lblJudul);
+            this.panel2.Location = new System.Drawing.Point(29, 136);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(538, 386);
+            this.panel2.TabIndex = 11;
+            // 
             // FormBeliTiket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 615);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblKarcis);
+            this.Controls.Add(this.btnBayarNanti);
             this.Controls.Add(this.btnPromo);
             this.Controls.Add(this.txtbUang);
             this.Controls.Add(this.txtbPromo);
@@ -352,13 +379,9 @@
             this.Controls.Add(this.lblTanggalMulai);
             this.Controls.Add(this.lblHarga);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblNama);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblGenre);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblJudul);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormBeliTiket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -368,6 +391,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,5 +425,7 @@
         private System.Windows.Forms.TextBox txtbUang;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblKarcis;
+        private System.Windows.Forms.Button btnBayarNanti;
+        private System.Windows.Forms.Panel panel2;
     }
 }
