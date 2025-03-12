@@ -176,5 +176,10 @@ namespace TicketsHub_for_Desktop
             myTiket.Show();
             this.Hide();
         }
+
+        private void bigLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

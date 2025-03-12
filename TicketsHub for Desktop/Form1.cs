@@ -103,5 +103,15 @@ namespace TicketsHub_for_Desktop
 
             }
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
