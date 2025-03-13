@@ -115,11 +115,16 @@ namespace TicketsHub_for_Desktop
             DateTime tanggalMulai = dateTanggal_mulai.Value;
             int jumlahTiket = Convert.ToInt32(numJumlahTiket.Value);
 
-            // Pastikan pengguna memilih minimal genre atau judul
-            if (string.IsNullOrEmpty(selectedJudul) && string.IsNullOrEmpty(selectedGenre))
+         
+            var qry = db.movies.AsQueryable();
+            if (!string.IsNullOrEmpty(selectedGenre))
             {
-                MessageBox.Show("Pastikan Anda memilih minimal genre atau judul!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                qry = qry.Where(x => x.Genre == selectedGenre);
+            }
+
+            if (!string.IsNullOrEmpty(selectedJudul))
+            {
+                qry = qry.Where(x => x.Judul == selectedJudul);
             }
 
             if (jumlahTiket <= 0)

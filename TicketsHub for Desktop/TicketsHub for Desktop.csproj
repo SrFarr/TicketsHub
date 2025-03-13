@@ -66,6 +66,9 @@
     <Compile Include="customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +151,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TiketSaya.resx">
       <DependentUpon>TiketSaya.cs</DependentUpon>
@@ -187,6 +191,23 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\image-removebg-preview %2829%29.png" />
+    <None Include="Resources\image-removebg-preview %2828%29.png" />
+    <None Include="Picture\user.png" />
+    <None Include="Picture\tiket.png" />
+    <None Include="Picture\movies.png" />
+    <None Include="Picture\logoNoCap.png" />
+    <None Include="Picture\logoCap.png" />
+    <None Include="Picture\logo.png" />
+    <None Include="Picture\icons8-ticket-50.png" />
+    <None Include="Picture\icons8-schedule-50.png" />
+    <None Include="Picture\icons8-logout-48.png" />
+    <None Include="Picture\icons8-clock-50.png" />
+    <None Include="Picture\icons8-back-50.png" />
+    <None Include="Resources\image-removebg-preview %2827%29.png" />
+    <None Include="Resources\image-removebg-preview %2826%29.png" />
+    <None Include="Resources\image-removebg-preview %2825%29.png" />
+    <None Include="Resources\ShapeMERAH.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

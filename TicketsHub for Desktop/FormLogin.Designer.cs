@@ -37,40 +37,44 @@
             this.btnLogin = new ReaLTaiizor.Controls.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             this.customPanel1 = new TicketsHub_for_Desktop.CustomPanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.customPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtbEmail
             // 
-            this.txtbEmail.Location = new System.Drawing.Point(137, 127);
-            this.txtbEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbEmail.Location = new System.Drawing.Point(183, 156);
+            this.txtbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtbEmail.Name = "txtbEmail";
-            this.txtbEmail.Size = new System.Drawing.Size(236, 20);
+            this.txtbEmail.Size = new System.Drawing.Size(313, 22);
             this.txtbEmail.TabIndex = 1;
             // 
             // txtbPassword
             // 
-            this.txtbPassword.Location = new System.Drawing.Point(137, 169);
-            this.txtbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbPassword.Location = new System.Drawing.Point(183, 208);
+            this.txtbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtbPassword.Name = "txtbPassword";
             this.txtbPassword.PasswordChar = '*';
-            this.txtbPassword.Size = new System.Drawing.Size(236, 20);
+            this.txtbPassword.Size = new System.Drawing.Size(313, 22);
             this.txtbPassword.TabIndex = 1;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(279, 200);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Location = new System.Drawing.Point(372, 246);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(102, 17);
+            this.checkBox1.Size = new System.Drawing.Size(125, 20);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "Show Password";
             this.checkBox1.UseVisualStyleBackColor = false;
@@ -80,10 +84,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(85, 132);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(113, 162);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.Size = new System.Drawing.Size(41, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Email";
             // 
@@ -91,10 +94,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(85, 174);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(113, 214);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password";
             // 
@@ -109,12 +111,12 @@
             this.btnLogin.Image = null;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnLogin.Location = new System.Drawing.Point(199, 231);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Location = new System.Drawing.Point(265, 284);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnLogin.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnLogin.Size = new System.Drawing.Size(86, 32);
+            this.btnLogin.Size = new System.Drawing.Size(115, 39);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Masuk";
             this.btnLogin.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -124,10 +126,9 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(148, 288);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel1.Location = new System.Drawing.Point(197, 354);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(46, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(58, 16);
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Register";
@@ -137,23 +138,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(60, 288);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(80, 354);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 13);
+            this.label3.Size = new System.Drawing.Size(111, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Belum ada akun?";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-75, -28);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(731, 150);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
             // 
             // bigLabel1
             // 
@@ -161,10 +150,9 @@
             this.bigLabel1.BackColor = System.Drawing.Color.White;
             this.bigLabel1.Font = new System.Drawing.Font("Segoe UI", 25F);
             this.bigLabel1.ForeColor = System.Drawing.Color.Black;
-            this.bigLabel1.Location = new System.Drawing.Point(191, 58);
-            this.bigLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.bigLabel1.Location = new System.Drawing.Point(255, 71);
             this.bigLabel1.Name = "bigLabel1";
-            this.bigLabel1.Size = new System.Drawing.Size(103, 46);
+            this.bigLabel1.Size = new System.Drawing.Size(129, 57);
             this.bigLabel1.TabIndex = 9;
             this.bigLabel1.Text = "Login";
             // 
@@ -175,6 +163,9 @@
             this.customPanel1.BorderFocusColor = System.Drawing.Color.HotPink;
             this.customPanel1.BorderRadius = 8;
             this.customPanel1.BorderSize = 2;
+            this.customPanel1.Controls.Add(this.pictureBox3);
+            this.customPanel1.Controls.Add(this.pictureBox1);
+            this.customPanel1.Controls.Add(this.pictureBox5);
             this.customPanel1.Controls.Add(this.bigLabel1);
             this.customPanel1.Controls.Add(this.linkLabel1);
             this.customPanel1.Controls.Add(this.btnLogin);
@@ -184,45 +175,78 @@
             this.customPanel1.Controls.Add(this.label2);
             this.customPanel1.Controls.Add(this.checkBox1);
             this.customPanel1.Controls.Add(this.label1);
-            this.customPanel1.Location = new System.Drawing.Point(76, 115);
+            this.customPanel1.Location = new System.Drawing.Point(101, 142);
+            this.customPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.customPanel1.Name = "customPanel1";
             this.customPanel1.ShadowColor = System.Drawing.Color.Gray;
             this.customPanel1.ShadowDepth = 5;
             this.customPanel1.ShadowOpacity = 180;
-            this.customPanel1.Size = new System.Drawing.Size(477, 332);
+            this.customPanel1.Size = new System.Drawing.Size(636, 409);
             this.customPanel1.TabIndex = 10;
             this.customPanel1.UnderlinedStyle = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::TicketsHub_for_Desktop.Properties.Resources.image_removebg_preview__26_;
+            this.pictureBox3.Location = new System.Drawing.Point(527, 354);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(106, 69);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TicketsHub_for_Desktop.Properties.Resources.movies;
+            this.pictureBox1.Location = new System.Drawing.Point(530, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(106, 69);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(94, -7);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox5.Location = new System.Drawing.Point(-36, -33);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(434, 117);
+            this.pictureBox5.Size = new System.Drawing.Size(254, 144);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TicketsHub_for_Desktop.Properties.Resources.image_removebg_preview__25_;
+            this.pictureBox2.Location = new System.Drawing.Point(-5, -12);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(868, 148);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 455);
+            this.ClientSize = new System.Drawing.Size(847, 560);
             this.Controls.Add(this.customPanel1);
-            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
             this.Load += new System.EventHandler(this.FormLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.customPanel1.ResumeLayout(false);
             this.customPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,5 +264,7 @@
         private ReaLTaiizor.Controls.BigLabel bigLabel1;
         private CustomPanel customPanel1;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

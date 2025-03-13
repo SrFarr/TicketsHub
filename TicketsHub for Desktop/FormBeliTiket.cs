@@ -134,6 +134,11 @@ namespace TicketsHub_for_Desktop
             this.Hide();
         }
 
+        private void lblNama_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnBayarNanti_Click(object sender, EventArgs e)
         {
             Belitiket("Belum Lunas");
