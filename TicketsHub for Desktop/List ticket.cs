@@ -103,15 +103,22 @@ namespace TicketsHub_for_Desktop
 
         private void ApplyFilter()
         {
+            // Aktifkan semua checkbox terlebih dahulu
+            checkHargaTertinggi.Enabled = true;
+            checkHagaTerendah.Enabled = true;
+            checkZA.Enabled = true;
+            checkAZ.Enabled = true;
+            check06.Enabled = true;
+            check612.Enabled = true;
+            check1218.Enabled = true;
+            check1824.Enabled = true;
+
             TimeSpan start06 = new TimeSpan(0, 0, 0);
             TimeSpan end06 = new TimeSpan(5, 59, 59);
-
             TimeSpan start612 = new TimeSpan(6, 0, 0);
             TimeSpan end612 = new TimeSpan(11, 59, 59);
-
             TimeSpan start1218 = new TimeSpan(12, 0, 0);
             TimeSpan end1218 = new TimeSpan(17, 59, 59);
-
             TimeSpan start1824 = new TimeSpan(18, 0, 0);
             TimeSpan end1824 = new TimeSpan(23, 59, 59);
 
@@ -123,52 +130,42 @@ namespace TicketsHub_for_Desktop
 
             var moviesQuery = db.movies.AsQueryable();
 
+            // Filter berdasarkan judul dan genre
             if (!string.IsNullOrEmpty(selectedJudul))
             {
                 moviesQuery = moviesQuery.Where(m => m.Judul.Equals(selectedJudul, StringComparison.OrdinalIgnoreCase));
             }
-
             if (!string.IsNullOrEmpty(selectedGenre))
             {
                 moviesQuery = moviesQuery.Where(m => m.Genre.Equals(selectedGenre, StringComparison.OrdinalIgnoreCase));
             }
-
             moviesQuery = moviesQuery.Where(m => m.Tanggal_mulai >= tanggalMulai);
 
-            // Sorting berdasarkan checkbox yang dipilih
+            // Sorting berdasarkan harga
             if (checkHargaTertinggi.Checked)
             {
-                checkHagaTerendah.Enabled = false;
+                checkHagaTerendah.Enabled = false; // Nonaktifkan checkbox terendah jika tertinggi aktif
                 moviesQuery = moviesQuery.OrderByDescending(m => m.Harga_tiket);
             }
             else if (checkHagaTerendah.Checked)
             {
-                checkHargaTertinggi.Enabled = false;
+                checkHargaTertinggi.Enabled = false; // Nonaktifkan checkbox tertinggi jika terendah aktif
                 moviesQuery = moviesQuery.OrderBy(m => m.Harga_tiket);
             }
-            else
-            {
-                checkHargaTertinggi.Enabled = true;
-                checkHagaTerendah.Enabled = true;
-            }
 
+            // Sorting berdasarkan abjad
             if (checkZA.Checked)
             {
-                checkAZ.Enabled = false;
+                checkAZ.Enabled = false; // Nonaktifkan AZ jika ZA aktif
                 moviesQuery = moviesQuery.OrderByDescending(m => m.Judul);
             }
             else if (checkAZ.Checked)
             {
-                checkZA.Enabled = false;
+                checkZA.Enabled = false; // Nonaktifkan ZA jika AZ aktif
                 moviesQuery = moviesQuery.OrderBy(m => m.Judul);
             }
-            else
-            {
-                checkZA.Enabled = true;
-                checkAZ.Enabled = true;
-            }
 
-
+            // Filter berdasarkan jam tayang
             if (check06.Checked)
             {
                 check612.Enabled = false;
@@ -197,14 +194,8 @@ namespace TicketsHub_for_Desktop
                 check1218.Enabled = false;
                 moviesQuery = moviesQuery.Where(m => m.Jam_mulai >= start1824 && m.Jam_mulai < end1824);
             }
-            else
-            {
-                check06.Enabled = true;
-                check612.Enabled = true;
-                check1218.Enabled = true;
-                check1824.Enabled = true;
-            }
 
+            // Ambil data hasil query
             var movies = moviesQuery.Select(m => new
             {
                 m.Id,
@@ -221,45 +212,88 @@ namespace TicketsHub_for_Desktop
                 return;
             }
 
+            // Tampilkan data di DataGridView
             datagridview.DataSource = movies;
         }
         private void checkHargaTertinggi_CheckedChanged(object sender, EventArgs e)
         {
+
+            if (checkHargaTertinggi.Checked)
+            {
+                checkHagaTerendah.Checked = false; // Pastikan hanya satu checkbox harga yang aktif
+            }
             ApplyFilter();
         }
 
         private void checkHagaTerendah_CheckedChanged(object sender, EventArgs e)
         {
+            if (checkHagaTerendah.Checked)
+            {
+                checkHargaTertinggi.Checked = false; // Pastikan hanya satu checkbox harga yang aktif
+            }
             ApplyFilter();
         }
 
         private void checkZA_CheckedChanged(object sender, EventArgs e)
         {
+            if (checkZA.Checked)
+            {
+                checkAZ.Checked = false; // Pastikan hanya satu checkbox abjad yang aktif
+            }
             ApplyFilter();
         }
 
         private void checkAZ_CheckedChanged(object sender, EventArgs e)
         {
+            if (checkAZ.Checked)
+            {
+                checkZA.Checked = false; // Pastikan hanya satu checkbox abjad yang aktif
+            }
             ApplyFilter();
         }
 
         private void check06_CheckedChanged(object sender, EventArgs e)
         {
+            if (check06.Checked)
+            {
+                check612.Checked = false;
+                check1218.Checked = false;
+                check1824.Checked = false; // Pastikan hanya satu checkbox jam yang aktif
+            }
             ApplyFilter();
         }
 
         private void check612_CheckedChanged(object sender, EventArgs e)
         {
+
+            if (check612.Checked)
+            {
+                check06.Checked = false;
+                check1218.Checked = false;
+                check1824.Checked = false; // Pastikan hanya satu checkbox jam yang aktif
+            }
             ApplyFilter();
         }
 
         private void check1218_CheckedChanged(object sender, EventArgs e)
         {
+            if (check1218.Checked)
+            {
+                check06.Checked = false;
+                check612.Checked = false;
+                check1824.Checked = false; // Pastikan hanya satu checkbox jam yang aktif
+            }
             ApplyFilter();
         }
 
         private void check1824_CheckedChanged(object sender, EventArgs e)
         {
+            if (check1824.Checked)
+            {
+                check06.Checked = false;
+                check612.Checked = false;
+                check1218.Checked = false; // Pastikan hanya satu checkbox jam yang aktif
+            }
             ApplyFilter();
         }
 

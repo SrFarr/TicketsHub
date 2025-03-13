@@ -146,13 +146,13 @@ namespace TicketsHub_for_Desktop
 
         private void FormBeliTiket_Load(object sender, EventArgs e)
         {
-            lblJudul.Text = "Nama Film: " + judul;
-            lblGenre.Text = "Genre: " + genre;
-            lblNama.Text = "Nama: " + nama;
-            lblEmail.Text = "Email: " + email;
-            lblTanggalMulai.Text = "Tanggal Mulai: " + tanggalMulai.ToString("dd MMM yyyy");
-            lblJamMulai.Text = "Jam Mulai: " + jamMulai;
-            lbltiket.Text = $"{tiket} Tiket";
+            lblJudul.Text = " " + judul;
+            lblGenre.Text = " " + genre;
+            lblNama.Text = " " + nama;
+            lblEmail.Text = " " + email;
+            lblTanggalMulai.Text = " " + tanggalMulai.ToString("dd MMM yyyy");
+            lblJamMulai.Text = ": " + jamMulai;
+            lbltiket.Text = $"{tiket} ";
             lblKarcis.Text = $"{judul} -> {genre}";
         }
 
