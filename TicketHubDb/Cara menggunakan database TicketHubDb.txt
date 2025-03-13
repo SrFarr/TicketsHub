@@ -1,0 +1,30 @@
+1. Pastikan mempunyai SSMS (Sql Server Management Studio dan Sql Server)
+2. Buka SSMS, kemudian login menggunakan localhost tau server lainnya
+3. Klik kanan Databases, pilih Import-Data Tier Application
+4. Klik Folder TicketHubDb
+5. Pilih TicketHubDb.bacpac
+6. Tunggu hingga selesai dan database berhasil di Import ke computer Anda
+
+----Cara mengakses databasenya  aplikasi--
+1. Open Folder TicketsHub by Kelompok 2 menggunakan visual studio
+2. Klik view, lalu server explorer, kemudian klik tambah connection yang logo database disertai charger
+3. Kemudian masukkan server name anda
+4. Kemudian connect to a database, pilih nama database saat anda mengexport database TicketHub
+5. Kemudian Klik Ok
+
+----Cara mengkoneksikan dengan ADO.NET Entity Data Model----
+1. Klik Navbar Projek
+2. Pilih form
+3. Pilih ADO.NET Enity Data Model
+4. Klik Add
+5. Pilih Model Contents EF Designer From Database
+6. Pilih nama database yang tadi di export
+7. Klik next
+8. Centang Tables
+9. Kemudian Finish
+
+----Cara menggunakan databasenya upaya aplikasinya bisa digunakan----
+1. Klik semua file beformat .cs
+2. Ubah TicketDbEntities1 dengan nama yang sudah anda berikan di saat membuat ADO NET Entity Data Model
+3. Lakukan sampai tidak ada error
+4. Dan aplikasi siap digunakan
