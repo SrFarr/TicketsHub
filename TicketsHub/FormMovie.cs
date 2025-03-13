@@ -194,7 +194,9 @@ namespace TicketsHub
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridView1.Columns["Action"].Index && e.RowIndex >= 0)
+            if (e.RowIndex < 0) return;
+
+            if(e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["Action"].Index)
             {
                 int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
                 var confirm = MessageBox.Show("Apakah kamu yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -203,7 +205,8 @@ namespace TicketsHub
                     DeleteMovie(id);
                 }
             }
-            if (e.RowIndex >= 0)
+          
+            if (dataGridView1.Rows[e.RowIndex].Cells["Id"].Value != null)
             {
                 selectedMovieId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
                 var movie = db.movies.FirstOrDefault(x => x.Id == selectedMovieId);

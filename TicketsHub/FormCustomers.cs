@@ -57,12 +57,12 @@ namespace TicketsHub
                 };
                 db.customers.Add(newCustomer);
                 db.SaveChanges();
-                MessageBox.Show("Customer berhasil ditambahkan.");
+                MessageBox.Show("Customer berhasil ditambahkan.","Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 set();
             }
             else
             {
-                MessageBox.Show("Semua kolom harus diisi.");
+                MessageBox.Show("Semua kolom harus diisi.","Exclamation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -81,13 +81,13 @@ namespace TicketsHub
                     cs.password = txtbPasswrd.Text;
 
                     db.SaveChanges();
-                    MessageBox.Show("Customer berhasil diperbarui.");
+                    MessageBox.Show("Customer berhasil diperbarui.", "Information", MessageBoxButtons.OK,MessageBoxIcon.Information);
                     set();
                 }
             }
             else
             {
-                MessageBox.Show("Pilih customer yang ingin diedit.");
+                MessageBox.Show("Pilih customer yang ingin diedit.","Exclamation", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
         }
 
@@ -100,17 +100,27 @@ namespace TicketsHub
 
                 if (cs != null)
                 {
+                 
+                    bool hasTickets = db.tickets.Any(t => t.Id_pelanggan == id);
+                    if (hasTickets)
+                    {
+                        MessageBox.Show("Customer tidak bisa dihapus karena masih memiliki tiket yang terdaftar.",
+                                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     db.customers.Remove(cs);
                     db.SaveChanges();
-                    MessageBox.Show("Customer berhasil dihapus.");
+                    MessageBox.Show("Customer berhasil dihapus.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     set();
                 }
             }
             else
             {
-                MessageBox.Show("Pilih customer yang ingin dihapus.");
+                MessageBox.Show("Pilih customer yang ingin dihapus.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
         private void FormCustomers_Load(object sender, EventArgs e)
         {
             set();
@@ -150,7 +160,13 @@ namespace TicketsHub
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            delete();
+            MessageBox.Show("Apakah anda ingin menghapus data ini?", "Exclamation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+            if(DialogResult == DialogResult.Yes)
+            {
+                delete();
+            }
+            
         }
 
         private void lbl_Click(object sender, EventArgs e)

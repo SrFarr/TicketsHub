@@ -120,23 +120,37 @@ namespace TicketsHub
                 return;
             }
 
-            int idFilm = Convert.ToInt32(cbFilm.SelectedValue);
+            int idFilmBaru = Convert.ToInt32(cbFilm.SelectedValue);
             int jumlahTiketBaru = Convert.ToInt32(nudJumlahTiket.Value);
-            var movie = db.movies.FirstOrDefault(m => m.Id == idFilm);
+            var movieLama = db.movies.FirstOrDefault(m => m.Id == tiket.Id_film);
+            var movieBaru = db.movies.FirstOrDefault(m => m.Id == idFilmBaru);
 
-            if (movie == null || jumlahTiketBaru > movie.Stok_tiket + tiket.Jumlah_tiket)
+            if (movieLama == null || movieBaru == null)
+            {
+                MessageBox.Show("Film tidak valid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Mengembalikan stok film lama
+            movieLama.Stok_tiket += tiket.Jumlah_tiket;
+
+            // Pastikan stok cukup untuk film baru
+            if (jumlahTiketBaru > movieBaru.Stok_tiket)
             {
                 MessageBox.Show("Stok tiket tidak mencukupi!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            movie.Stok_tiket += tiket.Jumlah_tiket; // Kembalikan stok sebelumnya
+            // Update data tiket
+            tiket.Id_film = idFilmBaru;
             tiket.Jumlah_tiket = jumlahTiketBaru;
-            tiket.Total_harga = jumlahTiketBaru * movie.Harga_tiket;
-            movie.Stok_tiket -= jumlahTiketBaru;
+            tiket.Total_harga = jumlahTiketBaru * movieBaru.Harga_tiket;
+            tiket.Status_pembayaran = cbStatusPembayaran.Text.Trim();
+
+            // Update stok film baru
+            movieBaru.Stok_tiket -= jumlahTiketBaru;
 
             db.SaveChanges();
-            UpdateTotalHarga();
             set();
             MessageBox.Show("Tiket berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -201,15 +215,16 @@ namespace TicketsHub
         {
             if (e.RowIndex >= 0)
             {
-                txtbNamaCustomer.Text = datagridviewTc.Rows[e.RowIndex].Cells["Nama"].Value.ToString();
+                txtbNamaCustomer.Text = datagridviewTc.Rows[e.RowIndex].Cells["Nama"].Value.ToString(); //Nama
                 int idTicket = Convert.ToInt32(datagridviewTc.Rows[e.RowIndex].Cells["Id"].Value);
 
                 var movie = db.movies.FirstOrDefault(m => m.Id == idTicket);
                 if (movie != null)
                 {
-                    cbFilm.SelectedValue = movie.Id;
-                    nudJumlahTiket.Value = Convert.ToInt32(datagridviewTc.Rows[e.RowIndex].Cells["Tiket"].Value);
-                    txtbTotalHarga.Text = Convert.ToDecimal(datagridviewTc.Rows[e.RowIndex].Cells["Harga"].Value).ToString("N0");
+                    cbFilm.Text = datagridviewTc.Rows[e.RowIndex].Cells["Film"].Value.ToString(); // Judul film
+                    nudJumlahTiket.Value = Convert.ToInt32(datagridviewTc.Rows[e.RowIndex].Cells["Tiket"].Value); // Jumlah TIket
+                    txtbTotalHarga.Text = Convert.ToDecimal(datagridviewTc.Rows[e.RowIndex].Cells["Harga"].Value).ToString("N0"); //Total harga
+                    cbStatusPembayaran.Text = datagridviewTc.Rows[e.RowIndex].Cells["Status"].Value.ToString();
                     UpdateCurrentTotal();
                 }
             }
